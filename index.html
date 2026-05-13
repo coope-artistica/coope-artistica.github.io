@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redireccionando...</title>
+  <script>
+    // 1. Captura los parámetros de la URL corta de GitHub
+    const parametros = window.location.search;
+    
+    // 2. Tu URL larga de la Web App de Apps Script
+    const urlWebApp = "https://script.google.com/macros/s/AKfycbwGMSe4xBT_zJXvv84BUZM6QB7UOOyro26p2J3qfeblJOKuDYxJQhIboo9hOVsxw2dT/exec";
+    
+    // 3. Redirecciona arrastrando los parámetros de forma limpia
+    window.location.href = urlWebApp + parametros;
+  </script>
+</head>
+<body>
+  <p>Cargando la aplicación, por favor espere...</p>
+</body>
+</html>
