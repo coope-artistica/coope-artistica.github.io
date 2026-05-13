@@ -35,6 +35,8 @@
     
     // 3. Une la URL base de Google con los parámetros capturados
     const urlFinal = urlWebApp + parametros;
+
+    console.log("urlFinal: ", urlFinal);
     
     // 4. Inyecta el iframe de forma dinámica para arrastrar las variables
     document.getElementById('contenedor-app').innerHTML = `
