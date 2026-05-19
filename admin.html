@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="icono_min.png">
+  <title>La Coope Artistica</title>
+  <style>
+    /* Estilos para que el iframe ocupe el 100% de la pantalla sin bordes */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="contenedor-app" style="width: 100%; height: 100%;">
+    <p style="padding: 20px; font-family: sans-serif;">Cargando interfaz...</p>
+  </div>
+
+  <script>
+    // 1. Captura los parámetros de la barra de direcciones de GitHub Pages
+    const parametros = window.location.search;
+    
+    // 2. Colocá acá la URL de ejecución de tu Web App de Apps Script (terminada en /exec)
+    const urlWebApp = "https://script.google.com/macros/s/AKfycbzTi_zfWFDeFKT19__Et7P3clpR-zYTHX4UhoKOLr03pahIRLGWl1R4ZOhW9bZaVI6g/exec";
+    
+    // 3. Une la URL base de Google con los parámetros capturados
+    const urlFinal = urlWebApp + parametros;
+
+    console.log("urlFinal: ", urlFinal);
+    
+    // 4. Inyecta el iframe de forma dinámica para arrastrar las variables
+    document.getElementById('contenedor-app').innerHTML = `
+      <iframe src="${urlFinal}" allow="geolocation; microphone; camera; clipboard-write"></iframe>
+    `;
+  </script>
+
+</body>
+</html>
