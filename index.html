@@ -53,9 +53,8 @@
     
     // 4. Inyecta el iframe de forma dinámica para arrastrar las variables
     document.getElementById('contenedor-app').innerHTML = `
-      <iframe src="${urlFinal}" allow="geolocation; microphone; camera; clipboard-write"></iframe>
+      <iframe src="${urlFinal}" allow="geolocation; microphone; camera; clipboard-write" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     `;
   </script>
-
 </body>
 </html>
