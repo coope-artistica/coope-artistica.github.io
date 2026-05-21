@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="icono_min.png">
-  <title>La Coope Artistica</title>
-  <style>
-    /* Estilos para que el iframe ocupe el 100% de la pantalla sin bordes */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="icono_min.png">
+    <title>La Coope Artistica</title>
+    <style>
+        html, body { 
+            margin: 0; 
+            padding: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+        }
+        .mensaje {
+            text-align: center;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
+    <div class="mensaje">
+        <h2>Redireccionando al panel de administración...</h2>
+        <p>Iniciá sesión con tu cuenta de Google si el sistema lo solicita.</p>
+    </div>
 
-  <div id="contenedor-app" style="width: 100%; height: 100%;">
-    <p style="padding: 20px; font-family: sans-serif;">Cargando interfaz...</p>
-  </div>
+    <script>
+        // 1. Captura los parámetros de la barra de direcciones de GitHub Pages (?page=admin, etc.)
+        const parametros = window.location.search;
 
-  <script>
-    // 1. Captura los parámetros de la barra de direcciones de GitHub Pages
-    const parametros = window.location.search;
-    
-    // 2. Colocá acá la URL de ejecución de tu Web App de Apps Script (terminada en /exec)
-    const urlWebApp = "https://script.google.com/macros/s/AKfycbzTi_zfWFDeFKT19__Et7P3clpR-zYTHX4UhoKOLr03pahIRLGWl1R4ZOhW9bZaVI6g/exec";
-    
-    // 3. Une la URL base de Google con los parámetros capturados
-    const urlFinal = urlWebApp + parametros;
+        // 2. URL de ejecución de tu Web App de ADMIN
+        const urlWebApp = "https://script.google.com/macros/s/AKfycbzTi_zfWFDeFKT19__Et7P3clpR-zYTHX4UhoKOLr03pahIRLGWl1R4ZOhW9bZaVI6g/exec";
 
-    console.log("urlFinal: ", urlFinal);
-    
-    // 4. Inyecta el iframe de forma dinámica para arrastrar las variables
-    document.getElementById('contenedor-app').innerHTML = `
-      <iframe src="${urlFinal}" allow="geolocation; microphone; camera; clipboard-write"></iframe>
-    `;
-  </script>
+        // 3. Une la URL base de Google con los parámetros capturados
+        const urlFinal = urlWebApp + parametros;
 
+        console.log("Redirigiendo a: ", urlFinal);
+
+        // 4. Redirección directa para evitar el bloqueo del iframe
+        window.location.href = urlFinal;
+    </script>
 </body>
 </html>
